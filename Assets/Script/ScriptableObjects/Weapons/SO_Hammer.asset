@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbae2f231ca14fe48aee7e9b67ec43aa, type: 3}
+  m_Name: SO_Hammer
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.WeaponSO
+  weaponId: hammer
+  displayName: 
+  icon: {fileID: 0}
+  weaponType: 0
+  damage: 10
+  fireRate: 0.3
+  range: 5
+  projectileSpeed: 12
+  projectilePrefab: {fileID: 0}
+  attackSfx: {fileID: 0}
+  magazineSize: 6
+  reloadTime: 1.2
+  poolPrewarmCount: 20

@@ -1,0 +1,493 @@
+fileFormatVersion: 2
+guid: 79983ac78969cea48b8bc2efb566216e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1895252865824584172
+    second: Assasin_0
+  - first:
+      213: -8663265514791231145
+    second: Assasin_1
+  - first:
+      213: 3014370896691961386
+    second: Assasin_2
+  - first:
+      213: 2465391862659318619
+    second: Assasin_3
+  - first:
+      213: 4315461380350233327
+    second: Assasin_4
+  - first:
+      213: 4019334484463529171
+    second: Assasin_5
+  - first:
+      213: -6369878696546881955
+    second: Assasin_6
+  - first:
+      213: -7225538229077769058
+    second: Assasin_7
+  - first:
+      213: -2899429382259026815
+    second: Assasin_8
+  - first:
+      213: -911251023729272864
+    second: Assasin_9
+  - first:
+      213: 7588206732647511622
+    second: Assasin_10
+  - first:
+      213: 5478400696610768334
+    second: Assasin_11
+  - first:
+      213: 5448494391461150279
+    second: Assasin_12
+  - first:
+      213: 5255897443072818808
+    second: Assasin_13
+  - first:
+      213: -8622340983337806482
+    second: Assasin_14
+  - first:
+      213: 937221168351327970
+    second: Assasin_15
+  - first:
+      213: -5079530483008707057
+    second: Assasin_16
+  - first:
+      213: -4200433850789913983
+    second: Assasin_17
+  - first:
+      213: 8371970912448261797
+    second: Assasin_18
+  - first:
+      213: 149181390913937187
+    second: Assasin_19
+  - first:
+      213: 2334410883839912593
+    second: Assasin_20
+  - first:
+      213: 2219831865761297969
+    second: Assasin_21
+  - first:
+      213: 9097612917662718878
+    second: Assasin_22
+  - first:
+      213: 990412758913373466
+    second: Assasin_23
+  - first:
+      213: -812146639152556872
+    second: Assasin_24
+  - first:
+      213: 5165306453677543191
+    second: Assasin_25
+  - first:
+      213: 1127234321457868854
+    second: Assasin_26
+  - first:
+      213: 4291521750049611106
+    second: Assasin_27
+  - first:
+      213: 1501000349318850995
+    second: Assasin_28
+  - first:
+      213: 1318553447795305224
+    second: Assasin_29
+  - first:
+      213: 930638872534094102
+    second: Assasin_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Assasin_idle1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 265
+        width: 54
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5eaef51315a997a0800000000000000
+      internalID: -6369878696546881955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assasin_idle2
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 265
+        width: 55
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9480d0634bb9bb90800000000000000
+      internalID: -7225538229077769058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assasin_idle3
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 265
+        width: 68
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 184de13b65823c7d0800000000000000
+      internalID: -2899429382259026815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assasin_idle4
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 265
+        width: 61
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e7d76d95069a53f0800000000000000
+      internalID: -911251023729272864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assasin_hit
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 145
+        width: 68
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a1425eaaf05b5c0800000000000000
+      internalID: -4200433850789913983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assasin_run1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 17
+        width: 80
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71f8b774adadea740800000000000000
+      internalID: 5165306453677543191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assasin_run2
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 18
+        width: 82
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 630ff1d94adb4af00800000000000000
+      internalID: 1127234321457868854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assasin_run3
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 19
+        width: 83
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26dd1915b4c8e8b30800000000000000
+      internalID: 4291521750049611106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assasin_run4
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 17
+        width: 77
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b923e47ddf94d410800000000000000
+      internalID: 1501000349318850995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assasin_run5
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 17
+        width: 87
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ba431ff517c4210800000000000000
+      internalID: 1318553447795305224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assasin_run6
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 16
+        width: 81
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6119093bf1b4aec00800000000000000
+      internalID: 930638872534094102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 28c5c61bd7305c049a99d7e2973511f3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Assasin_0: 1895252865824584172
+      Assasin_10: 7588206732647511622
+      Assasin_11: 5478400696610768334
+      Assasin_12: 5448494391461150279
+      Assasin_13: 5255897443072818808
+      Assasin_14: -8622340983337806482
+      Assasin_15: 937221168351327970
+      Assasin_16: -5079530483008707057
+      Assasin_18: 8371970912448261797
+      Assasin_19: 149181390913937187
+      Assasin_20: 2334410883839912593
+      Assasin_21: 2219831865761297969
+      Assasin_22: 9097612917662718878
+      Assasin_23: 990412758913373466
+      Assasin_24: -812146639152556872
+      Assasin_4: 4315461380350233327
+      Assasin_5: 4019334484463529171
+      Assasin_hit: -4200433850789913983
+      Assasin_idle1: -6369878696546881955
+      Assasin_idle2: -7225538229077769058
+      Assasin_idle3: -2899429382259026815
+      Assasin_idle4: -911251023729272864
+      Assasin_run1: 5165306453677543191
+      Assasin_run2: 1127234321457868854
+      Assasin_run3: 4291521750049611106
+      Assasin_run4: 1501000349318850995
+      Assasin_run5: 1318553447795305224
+      Assasin_run6: 930638872534094102
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
