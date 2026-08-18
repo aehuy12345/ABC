@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.Events;
 using Game.Data;
 using Game.Data.Traits; // IDamageable
 using Game.Gameplay.Player; // IWeaponHandler (tái sử dụng interface, enemy bắn cũng gọi qua đây)
 using Game.Patterns.Pooling;
+using Game.Audio;
 
 namespace Game.Gameplay.Enemy
 {
@@ -11,6 +13,11 @@ namespace Game.Gameplay.Enemy
     {
         [SerializeField] private EnemyDataSO data;
         [SerializeField] private string playerTag = "Player";
+
+        [Header("Events")]
+        [Tooltip("Bắn ra khi enemy này chết. Dùng cho Boss: kéo NextFloorPortal vào đây và gọi SetActive(true) " +
+                 "ngay trong Inspector — không cần biết đây có phải Boss hay không ở code.")]
+        [SerializeField] private UnityEvent onDeath;
 
         public EnemyState CurrentState { get; private set; } = EnemyState.Patrol;
 
@@ -29,8 +36,12 @@ namespace Game.Gameplay.Enemy
             _weaponHandler = GetComponent<IWeaponHandler>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
+            // OnEnable (không phải Start) vì enemy được tái sử dụng qua Object Pool —
+            // Start() chỉ chạy 1 lần duy nhất trong đời GameObject, không đủ để reset mỗi lần respawn.
+            _isDead = false;
+            CurrentState = EnemyState.Patrol;
             _currentHP = data.maxHP;
             _spawnPosition = transform.position;
             PickNewPatrolTarget();
@@ -121,6 +132,8 @@ namespace Game.Gameplay.Enemy
             if (_isDead) return;
 
             _currentHP -= amount;
+            AudioManager.Instance?.PlaySFX(data.hitSfx);
+
             if (_currentHP <= 0f) Die();
         }
 
@@ -130,7 +143,9 @@ namespace Game.Gameplay.Enemy
             CurrentState = EnemyState.Dead;
             _rb.linearVelocity = Vector2.zero;
 
+            AudioManager.Instance?.PlaySFX(data.deathSfx);
             ExecuteTraits(TraitTrigger.OnDeath); // VD: SplitOnDeathTrait tách quái con ở đây
+            onDeath?.Invoke();                    // VD: Boss chết -> mở NextFloorPortal (wire trong Inspector)
 
             PoolManager.Instance?.Despawn(gameObject);
         }

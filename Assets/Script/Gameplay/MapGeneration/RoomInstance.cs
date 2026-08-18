@@ -1,4 +1,5 @@
 using UnityEngine;
+using Game.Audio;
 
 namespace Game.Gameplay.MapGeneration
 {
@@ -20,6 +21,12 @@ namespace Game.Gameplay.MapGeneration
         [Header("Điểm spawn quái trong phòng, dùng bởi Object Pool")]
         public Transform[] enemySpawnPoints;
 
+        [Header("Audio")]
+        [Tooltip("LƯU Ý: ApplyDoors() chạy 1 lần lúc map vừa generate xong (không phải lúc Player đi tới cửa), " +
+                 "nên SFX này sẽ phát dồn dập nếu map có nhiều phòng. Chỉ bật nếu bạn chấp nhận điều đó, " +
+                 "hoặc để trống và tự trigger SFX ở chỗ khác (VD lúc Player va chạm collider cửa).")]
+        public AudioClip doorOpenSfx;
+
         /// <summary>
         /// Bật cửa cần dùng, tắt (đóng bằng tường) cửa không cần theo bitmask từ RoomNode.
         /// </summary>
@@ -37,6 +44,9 @@ namespace Game.Gameplay.MapGeneration
             // "Mở cửa" ở đây = active cửa (đi qua được); nếu không mở thì cửa tắt đi,
             // để lộ tường phía sau (tường nên luôn có sẵn, không cần script riêng).
             door.SetActive(open);
+
+            if (open && doorOpenSfx != null)
+                AudioManager.Instance?.PlaySFX(doorOpenSfx, 0.5f); // volumeScale thấp hơn vì có thể phát nhiều cửa cùng lúc
         }
     }
 }

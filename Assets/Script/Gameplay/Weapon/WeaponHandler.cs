@@ -3,6 +3,7 @@ using Game.Data;
 using Game.Data.Traits; // IDamageable
 using Game.Gameplay.Player;
 using Game.Patterns.Pooling;
+using Game.Audio;
 
 namespace Game.Gameplay.Weapon
 {
@@ -83,6 +84,7 @@ namespace Game.Gameplay.Weapon
             }
 
             _cooldownTimer = currentWeapon.fireRate;
+            AudioManager.Instance?.PlaySFX(currentWeapon.attackSfx);
 
             if (currentWeapon.weaponType == WeaponType.Ranged)
                 FireProjectile(aimDirection);

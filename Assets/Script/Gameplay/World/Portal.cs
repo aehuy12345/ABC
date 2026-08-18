@@ -1,4 +1,5 @@
 using UnityEngine;
+using Game.Audio;
 
 namespace Game.Gameplay.World
 {
@@ -8,6 +9,7 @@ namespace Game.Gameplay.World
         [SerializeField] private string targetSceneName = "03_GameplayMap";
         [SerializeField] private string playerTag = "Player";
         [SerializeField] private GameObject visualEffect; // hiệu ứng cổng dịch chuyển, ẩn/hiện theo trạng thái active
+        [SerializeField] private AudioClip teleportSfx;
 
         private bool _isActive;
 
@@ -27,6 +29,7 @@ namespace Game.Gameplay.World
             if (!_isActive) return;
             if (!other.CompareTag(playerTag)) return;
 
+            AudioManager.Instance?.PlaySFX(teleportSfx);
             Game.Core.SceneLoader.LoadScene(targetSceneName);
         }
     }

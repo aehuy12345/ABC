@@ -22,5 +22,9 @@ namespace Game.Gameplay.Enemy
 
         [Header("Traits (composition - kéo nhiều trait vào đây)")]
         public EnemyTraitSO[] traits;
+
+        [Header("Audio")]
+        public AudioClip hitSfx;
+        public AudioClip deathSfx;
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using Unity.Cinemachine;
 using Game.Data;
+using Game.Audio;
 
 namespace Game.UI.CharacterSelect
 {
@@ -15,6 +16,7 @@ namespace Game.UI.CharacterSelect
         [SerializeField] private CharacterClassSO characterData;
         [SerializeField] private CinemachineCamera virtualCamera;
         [SerializeField] private CharacterSelectController controller; // kéo-thả trong Inspector, thay vì Find lúc runtime
+        [SerializeField] private AudioClip selectSfx;
 
         public CharacterClassSO CharacterData => characterData;
         public CinemachineCamera VirtualCamera => virtualCamera;
@@ -22,6 +24,7 @@ namespace Game.UI.CharacterSelect
         // OnMouseDown yêu cầu Collider2D + Camera có Physics2DRaycaster (UI) hoặc chỉ cần Collider2D thường
         private void OnMouseDown()
         {
+            AudioManager.Instance?.PlaySFX(selectSfx);
             controller?.SelectCharacter(this);
         }
     }

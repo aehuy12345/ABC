@@ -2,6 +2,7 @@ using UnityEngine;
 using Game.Core;
 using Game.Data.Traits; // IDamageable
 using Game.Patterns.Observer;
+using Game.Audio;
 
 namespace Game.Gameplay.Player
 {
@@ -12,6 +13,10 @@ namespace Game.Gameplay.Player
 
         [Header("Events")]
         [SerializeField] private GameEventSO onPlayerDeathEvent;
+
+        [Header("Audio")]
+        [SerializeField] private AudioClip hurtSfx;
+        [SerializeField] private AudioClip deathSfx;
 
         public float MaxHP { get; private set; }
         public float CurrentHP { get; private set; }
@@ -34,6 +39,7 @@ namespace Game.Gameplay.Player
             if (_controller != null && _controller.IsInvincible) return; // đang dash -> miễn sát thương
 
             CurrentHP -= amount;
+            AudioManager.Instance?.PlaySFX(hurtSfx);
 
             if (CurrentHP <= 0f)
             {
@@ -51,6 +57,7 @@ namespace Game.Gameplay.Player
         private void Die()
         {
             IsDead = true;
+            AudioManager.Instance?.PlaySFX(deathSfx);
             onPlayerDeathEvent?.Raise();
         }
     }
