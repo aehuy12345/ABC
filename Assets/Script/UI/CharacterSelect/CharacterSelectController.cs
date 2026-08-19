@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Unity.Cinemachine;
 using Game.Core;
 using Game.Patterns.Observer;
@@ -15,7 +16,7 @@ namespace Game.UI.CharacterSelect
 
         [Header("UI")]
         [SerializeField] private Button confirmButton;
-        [SerializeField] private Text selectedNameLabel; // hoặc TMP_Text nếu dùng TextMeshPro
+        [SerializeField] private TMP_Text selectedNameLabel;
 
         [Header("Events (Observer pattern - tuỳ chọn)")]
         [SerializeField] private GameEventSO onCharacterConfirmedEvent;

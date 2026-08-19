@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Game.Gameplay.Player;
 
 namespace Game.UI.HUD
@@ -8,7 +9,7 @@ namespace Game.UI.HUD
     {
         [SerializeField] private PlayerStats playerStats;
         [SerializeField] private Image fillImage; // Image Type = Filled, Fill Method = Horizontal
-        [SerializeField] private Text hpText;      // hiển thị "80/100", để trống nếu không cần
+        [SerializeField] private TMP_Text hpText;  // hiển thị "80/100", để trống nếu không cần
 
         private void Update()
         {

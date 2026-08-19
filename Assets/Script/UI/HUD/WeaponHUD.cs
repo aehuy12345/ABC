@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Game.Gameplay.Weapon;
 
 namespace Game.UI.HUD
@@ -9,7 +10,7 @@ namespace Game.UI.HUD
         [SerializeField] private WeaponHandler weaponHandler;
         [SerializeField] private Image weaponIcon;
         [SerializeField] private Image cooldownOverlay; // Image Type = Filled, Radial 360 — phủ mờ dần khi sẵn sàng
-        [SerializeField] private Text ammoText;
+        [SerializeField] private TMP_Text ammoText;
 
         private void Update()
         {

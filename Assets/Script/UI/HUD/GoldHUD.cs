@@ -1,12 +1,12 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 using Game.Core;
 
 namespace Game.UI.HUD
 {
     public class GoldHUD : MonoBehaviour
     {
-        [SerializeField] private Text goldText;
+        [SerializeField] private TMP_Text goldText;
 
         private void Update()
         {
