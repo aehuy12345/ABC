@@ -10,9 +10,8 @@ namespace Game.UI.CharacterSelect
     public class CharacterSelectController : MonoBehaviour
     {
         [Header("Cinemachine")]
-        [SerializeField] private CinemachineCamera overviewCamera; // vcam mặc định nhìn toàn cảnh
-        [SerializeField] private int selectedPriority = 20;
-        [SerializeField] private int defaultPriority = 10;
+        [Tooltip("Camera nhìn toàn cảnh 4 nhân vật, bật mặc định lúc vào scene, tắt khi có nhân vật được chọn.")]
+        [SerializeField] private CinemachineCamera overviewCamera;
 
         [Header("UI")]
         [SerializeField] private Button confirmButton;
@@ -36,27 +35,32 @@ namespace Game.UI.CharacterSelect
             confirmButton.onClick.AddListener(OnConfirmClicked);
             if (backButton != null) backButton.onClick.AddListener(OnBackClicked);
 
-            // Không cần tự SetActive(false) cho confirmButton nữa — nó giờ là CON của StatsPanel
-            // (kéo Btn_Confirm vào làm con của StatsPanel trong Hierarchy), nên statsPanel.Hide()
-            // tự động ẩn luôn cả nút theo, không cần code quản lý riêng 2 chỗ.
             if (selectedNameLabel != null) selectedNameLabel.gameObject.SetActive(false);
             statsPanel?.Hide();
 
             if (portal != null) portal.SetActive(false); // cổng chỉ mở sau khi confirm
+
+            // Đảm bảo trạng thái ban đầu đúng: Overview bật, mọi camera nhân vật tắt
+            // (CharacterSelectSlot.Awake() của từng nhân vật cũng tự tắt camera của nó,
+            // đây chỉ là bước đảm bảo thêm ở cấp controller).
+            if (overviewCamera != null) overviewCamera.gameObject.SetActive(true);
+            foreach (var s in allSlots) s.DisableAllCameras();
         }
 
+        /// <summary>Gọi từ CharacterSelectSlot.OnMouseDown() khi Player click vào 1 nhân vật.</summary>
         public void SelectCharacter(CharacterSelectSlot slot)
         {
+            // Tắt camera của nhân vật đang chọn trước đó (nếu có), tránh 2 camera cùng bật 1 lúc
+            if (_currentSlot != null && _currentSlot != slot)
+                _currentSlot.DisableAllCameras();
+
             _currentSlot = slot;
 
-            // Hạ priority tất cả vcam nhân vật khác, chỉ cái được chọn có priority cao nhất
-            foreach (var s in allSlots)
-            {
-                if (s.VirtualCamera == null) continue;
-                SetPriority(s.VirtualCamera, (s == slot) ? selectedPriority : defaultPriority);
-            }
+            if (overviewCamera != null) overviewCamera.gameObject.SetActive(false);
 
-            if (overviewCamera != null) SetPriority(overviewCamera, defaultPriority);
+            // Bật đúng Zoom Camera của nhân vật vừa chọn (Confirm Camera của nó vẫn tắt cho tới khi bấm Confirm)
+            if (slot.ZoomCamera != null) slot.ZoomCamera.gameObject.SetActive(true);
+            if (slot.ConfirmCamera != null) slot.ConfirmCamera.gameObject.SetActive(false);
 
             if (selectedNameLabel != null)
             {
@@ -64,24 +68,17 @@ namespace Game.UI.CharacterSelect
                 selectedNameLabel.text = slot.CharacterData.displayName;
             }
 
-            // ShowStats() bật StatsPanel lên -> Btn_Confirm (con của panel) tự hiện theo cùng lúc
+            // ShowStats() bật StatsPanel lên -> Btn_Confirm/Btn_Back (con của panel) tự hiện theo cùng lúc
             statsPanel?.ShowStats(slot.CharacterData);
-        }
-
-        /// <summary>
-        /// Cinemachine 3.x đổi Priority từ int sang struct PrioritySettings (có field Value + Enabled).
-        /// Hàm này thay cho việc gán "vcam.Priority = x" như CM2.x cũ.
-        /// </summary>
-        private void SetPriority(CinemachineCamera vcam, int value)
-        {
-            var settings = vcam.Priority;
-            settings.Value = value;
-            vcam.Priority = settings;
         }
 
         private void OnConfirmClicked()
         {
             if (_currentSlot == null) return;
+
+            // Đổi từ Zoom Camera sang Confirm Camera của đúng nhân vật đang chọn
+            if (_currentSlot.ZoomCamera != null) _currentSlot.ZoomCamera.gameObject.SetActive(false);
+            if (_currentSlot.ConfirmCamera != null) _currentSlot.ConfirmCamera.gameObject.SetActive(true);
 
             GameSession.Instance.SelectCharacter(_currentSlot.CharacterData);
 
@@ -92,23 +89,17 @@ namespace Game.UI.CharacterSelect
 
         /// <summary>
         /// Gọi từ nút Back/Thoát trong StatsPanel — huỷ chọn nhân vật hiện tại,
-        /// hạ hết vcam nhân vật về mặc định, đưa CM_Overview lên lại làm camera chính.
+        /// tắt cả 2 camera của nhân vật đó, đưa CM_Overview bật lại làm camera chính.
         /// </summary>
         private void OnBackClicked()
         {
+            if (_currentSlot != null) _currentSlot.DisableAllCameras();
             _currentSlot = null;
 
-            foreach (var s in allSlots)
-            {
-                if (s.VirtualCamera == null) continue;
-                SetPriority(s.VirtualCamera, defaultPriority);
-            }
-
-            // Đưa overview lên cao hơn mọi vcam nhân vật (đang ở defaultPriority) để nó được hiển thị lại
-            if (overviewCamera != null) SetPriority(overviewCamera, selectedPriority);
+            if (overviewCamera != null) overviewCamera.gameObject.SetActive(true);
 
             if (selectedNameLabel != null) selectedNameLabel.gameObject.SetActive(false);
-            statsPanel?.Hide(); // ẩn panel -> Btn_Confirm (con của panel) tự ẩn theo
+            statsPanel?.Hide(); // ẩn panel -> Btn_Confirm/Btn_Back (con của panel) tự ẩn theo
         }
     }
 }
